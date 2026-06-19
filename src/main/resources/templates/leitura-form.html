@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Censo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<form th:action="@{/censo/salvar}" th:object="${censo}" method="post">
+
+
+    <!--    <input type="hidden" th:field="*{id}" />-->
+
+
+    <h1>Dados de Navegação</h1>
+
+
+    <label>Direção Navegação:</label>
+    <input type="number" step="0.01" th:field="*{direcaoNavegacao}" required><br>
+
+
+    <label>Velocidade Navegação:</label>
+    <input type="number" step="0.01" th:field="*{velocidadeNavegacao}" required><br>
+
+
+    <label>Velocidade Vento:</label>
+    <input type="number" step="0.01" th:field="*{velocidadeVento}" required><br>
+
+
+    <label>Direção Vento:</label>
+    <input type="number" step="0.01" th:field="*{direcaoVento}" required><br>
+
+
+    <label>Pressão:</label>
+    <input type="number" step="0.01" th:field="*{pressao}" required><br>
+
+
+    <label>Latitude:</label>
+    <input type="number" step="0.000001" th:field="*{latitude}" required><br>
+
+
+    <label>Longitude:</label>
+    <input type="number" step="0.000001" th:field="*{longitude}" required><br>
+
+
+    <label>Profundidade:</label>
+    <input type="number" step="0.01" th:field="*{profundidade}" required><br>
+
+
+
+
+
+    <!--    <select th:field="*{observador.id}" required>-->
+    <!--        <option value="">Selecione...</option>-->
+    <!--        <option th:each="u : ${usuarios}" th:value="${u.id}" th:text="${u.username}"></option>-->
+    <!--    </select>-->
+
+
+    <h1>Aves Seguidoras</h1>
+
+
+    <table>
+        <thead>
+        <tr>
+            <th>Espécie</th>
+            <th>Contagem</th>
+            <th>Ação</th>
+        </tr>
+        </thead>
+        <tbody id="leituraSeguidoras">
+        <tr th:each="l, iter : *{leiturasSeguidoras}">
+            <td>
+                <input type="text"
+                       th:field="*{leiturasSeguidoras[__${iter.index}__].especie}"
+                       required>
+            </td>
+            <td>
+                <input type="number"
+                       th:field="*{leiturasSeguidoras[__${iter.index}__].contagem}"
+                       min="0" required>
+            </td>
+            <td>
+                <button type="submit" onclick="removerLinha(this)">Remover</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <button type="submit" onclick="salvarCenso()">Adicionar Ave</button>
+
+
+    <h1>Censo Continuo</h1>
+
+
+    <table>
+        <thead>
+        <tr>
+            <th>Espécie</th>
+            <th>Contagem</th>
+            <th>Ação</th>
+        </tr>
+        </thead>
+        <tbody id="leiturasContinuo">
+        <tr th:each="l, iter : *{leiturasContinuo}">
+            <td>
+                <input type="text"
+                       th:field="*{leiturasContinuo[__${iter.index}__].especie}"
+                       required>
+            </td>
+            <td>
+                <input type="number"
+                       th:field="*{leiturasContinuo[__${iter.index}__].contagem}"
+                       min="0" required>
+            </td>
+            <td>
+                <button type="button" onclick="removerLinha(this)">Remover</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <button type="button" onclick="adicionarLinha()">Adicionar Ave</button>
+
+    <br><br>
+
+
+    <button type="submit">Salvar</button>
+    <a th:href="@{/censos}">Cancelar</a>
+
+
+</form>

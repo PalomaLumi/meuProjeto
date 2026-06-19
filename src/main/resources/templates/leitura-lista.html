@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Leituras</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/leitura-style.css}">
+</head>
+<body>
+
+<header>
+    <h1>&#128038; Registros de Leituras de Aves</h1>
+</header>
+
+<hr>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID Leitura</th>
+        <th>&#128038;Espécie</th>
+        <th>Contagem</th>
+        <th>Tipo de Leitura</th> <th>ID Censo Associado</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="leitura : ${leituras}">
+        <td th:text="${leitura.id}">1</td>
+        <td th:text="${leitura.especie}">Albatroz-de-sobrancelha</td>
+        <td th:text="${leitura.contagem}">5</td>
+
+        <td th:text="${leitura.tipo}">SEGUIDORA</td>
+
+        <td th:text="${leitura.censo != null ? leitura.censo.id : 'N/A'}">100</td>
+    </tr>
+    </tbody>
+</table>
+
+<br>
+<a th:href="@{/censo/novo}">Adicionar Novo Censo</a>
+<a th:href="@{/censo}" class="button">Voltar </a>
+
+</body>
+</html>

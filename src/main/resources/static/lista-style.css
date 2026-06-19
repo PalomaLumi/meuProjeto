@@ -1,0 +1,136 @@
+/* style_list.css - Tema Azul Mar e Sombras de Aves Marinhas para a Lista */
+
+:root {
+    --cor-primaria: #0077b6; /* Azul Mar Profundo */
+    --cor-secundaria: #00b4d8; /* Azul Céu/Água Clara */
+    --cor-fundo: #e0f7fa; /* Azul Gelo para o fundo */
+    --cor-texto: #333;
+    --cor-sombra-ave: rgba(0, 0, 0, 0.15); /* Sombra sutil */
+    --cor-borda: #90e0ef;
+    --cor-alerta: #ffc107; /* Amarelo para Warning */
+    --cor-perigo: #dc3545; /* Vermelho para Danger */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, var(--cor-fundo) 0%, #a8dadc 100%); /* Gradiente de fundo sutil */
+    color: var(--cor-texto);
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+h2 {
+    color: var(--cor-primaria);
+    border-bottom: 2px solid var(--cor-borda);
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 2px rgba(0, 119, 182, 0.2);
+}
+
+/* Estilo da Tabela */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden; /* Para que as bordas arredondadas funcionem */
+    box-shadow: 0 8px 15px var(--cor-sombra-ave),
+                0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.table thead {
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+.table th, .table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid var(--cor-borda);
+}
+
+/* Estilo para linhas zebradas (striped) */
+.table-striped tbody tr:nth-child(odd) {
+    background-color: #f4f9f9; /* Azul Gelo mais claro */
+}
+
+.table-striped tbody tr:hover {
+    background-color: #e6f7ff; /* Destaque ao passar o mouse */
+}
+
+/* Estilo para o link na primeira coluna (ID) */
+.table td a[th\\:href] {
+    color: var(--cor-primaria);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.table td a[th\\:href]:hover {
+    color: var(--cor-secundaria);
+    text-decoration: underline;
+}
+
+/* Estilo dos Botões (Geral) */
+.btn {
+    display: inline-block;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.1s, box-shadow 0.3s;
+    margin-right: 5px;
+}
+
+/* Botão Padrão (Novo Censo) */
+a[th\\:href="@{/censo/novo}"].btn {
+    background-color: var(--cor-primaria);
+    color: white;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px var(--cor-sombra-ave);
+}
+
+a[th\\:href="@{/censo/novo}"].btn:hover {
+    background-color: #023e8a;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 10px var(--cor-sombra-ave);
+}
+
+/* Botão Warning (Editar) */
+.btn-warning {
+    background-color: var(--cor-alerta);
+    color: var(--cor-texto);
+}
+
+.btn-warning:hover {
+    background-color: #ffca2c;
+    transform: translateY(-1px);
+}
+
+/* Botão Danger (Excluir) */
+.btn-danger {
+    background-color: var(--cor-perigo);
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    transform: translateY(-1px);
+}
+
+/* Botão Pequeno (btn-sm) */
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 0.9em;
+}
+
+/* Estilo para a coluna de Ações */
+.table td:last-child {
+    white-space: nowrap; /* Evita que os botões quebrem a linha */
+}

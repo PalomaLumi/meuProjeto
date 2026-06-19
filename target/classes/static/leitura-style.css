@@ -1,0 +1,128 @@
+/* ----------------------------------------------
+   style_list.css - Tema Azul Mar e Sombras de Aves Marinhas
+------------------------------------------------*/
+
+:root {
+    --cor-primaria: #0077b6; /* Azul Mar Profundo */
+    --cor-secundaria: #00b4d8; /* Azul Água Clara */
+    --cor-fundo: #e0f7fa; /* Azul Gelo */
+    --cor-texto: #333;
+    --cor-sombra-ave: rgba(0, 0, 0, 0.15);
+    --cor-borda: #90e0ef;
+    --cor-alerta: #ffc107;
+    --cor-perigo: #dc3545;
+}
+
+/* Fundo geral */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, var(--cor-fundo) 0%, #a8dadc 100%);
+    color: var(--cor-texto);
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* Cabeçalho */
+header {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px var(--cor-sombra-ave);
+    margin-bottom: 25px;
+}
+
+header h1 {
+    margin-top: 0;
+    color: var(--cor-primaria);
+    text-shadow: 1px 1px 2px rgba(0, 119, 182, 0.2);
+}
+
+/* Botão para voltar */
+.button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 18px;
+    background-color: var(--cor-primaria);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px var(--cor-sombra-ave);
+    transition: 0.3s ease;
+}
+
+header .button:hover {
+    background-color: #023e8a;
+    transform: translateY(-1px);
+}
+
+/* Separador */
+hr {
+    border: 0;
+    height: 1px;
+    background: var(--cor-borda);
+    margin: 25px 0;
+}
+
+/* ---------- ESTILO DA TABELA DE LEITURAS ---------- */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 20px;
+    box-shadow: 0 8px 15px var(--cor-sombra-ave),
+                0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+thead {
+    background-color: var(--cor-primaria);
+    color: white;
+    font-weight: bold;
+}
+
+th, td {
+    padding: 12px 16px;
+    border: 1px solid var(--cor-borda);
+    text-align: left;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f4f9f9;
+}
+
+tbody tr:hover {
+    background-color: #e6f7ff;
+}
+
+/* ---------- LINKS ---------- */
+
+a {
+    color: var(--cor-primaria);
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: var(--cor-secundaria);
+}
+
+/* Botão de "Adicionar Novo Censo" */
+a[th\\:href="@{/censo/novo}"] {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 18px;
+    background-color: var(--cor-primaria);
+    color: white !important;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px var(--cor-sombra-ave);
+}
+
+a[th\\:href="@{/censo/novo}"]:hover {
+    background-color: #023e8a;
+}

@@ -1,0 +1,221 @@
+/* style.css - Tema Azul Mar e Sombras de Aves Marinhas */
+
+:root {
+    --cor-primaria: #0077b6; /* Azul Mar Profundo */
+    --cor-secundaria: #00b4d8; /* Azul Céu/Água Clara */
+    --cor-fundo: #e0f7fa; /* Azul Gelo para o fundo */
+    --cor-texto: #333;
+    --cor-sombra-ave: rgba(0, 0, 0, 0.15); /* Sombra sutil */
+    --cor-borda: #90e0ef;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, var(--cor-fundo) 0%, #a8dadc 100%); /* Gradiente de fundo sutil */
+    color: var(--cor-texto);
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* Estilo para o bloco de usuário logado */
+div[th\\:if] {
+    background: var(--cor-primaria) !important; /* Sobrescreve o inline style */
+    color: white;
+    padding: 15px !important;
+    margin-bottom: 30px !important;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--cor-sombra-ave);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div[th\\:if] strong {
+    color: #ffdd00; /* Destaque em amarelo para o login */
+}
+
+div[th\\:if] a {
+    color: white !important;
+    font-weight: normal !important;
+    text-decoration: underline !important;
+    transition: color 0.3s;
+}
+
+div[th\\:if] a:hover {
+    color: var(--cor-borda) !important;
+}
+
+/* Estilo principal do formulário */
+form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px var(--cor-sombra-ave); /* Sombra mais proeminente */
+}
+
+h1, h3 {
+    color: var(--cor-primaria);
+    border-bottom: 2px solid var(--cor-borda);
+    padding-bottom: 10px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--cor-primaria);
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    border-color: var(--cor-secundaria);
+    box-shadow: 0 0 5px rgba(0, 180, 216, 0.5);
+    outline: none;
+}
+
+/* Estilo das tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 10px var(--cor-sombra-ave);
+}
+
+thead {
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid var(--cor-borda);
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f4f9f9; /* Listras sutis */
+}
+
+/* Estilo do Contador */
+.contador {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.contador button {
+    background-color: var(--cor-secundaria);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.contador button:hover {
+    background-color: #0096c7;
+}
+
+.contador input[type="number"] {
+    text-align: center;
+    width: 60px;
+    flex-grow: 0;
+    padding: 8px;
+    background-color: #f0f0f0;
+}
+
+/* Estilo dos Botões de Ação */
+button[type="submit"],
+button[onclick^="adicionarLinha"],
+button[onclick^="removerLinha"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 10px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+/* Botão Salvar (Primário) */
+button[type="submit"] {
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+button[type="submit"]:hover {
+    background-color: #023e8a;
+    transform: translateY(-1px);
+}
+
+/* Botões Adicionar Ave (Secundário) */
+button[onclick^="adicionarLinha"] {
+    background-color: var(--cor-secundaria);
+    color: white;
+    margin-top: 15px;
+}
+
+button[onclick^="adicionarLinha"]:hover {
+    background-color: #0096c7;
+    transform: translateY(-1px);
+}
+
+/* Botão Remover (Atenção) */
+button[onclick^="removerLinha"] {
+    background-color: #ef476f; /* Vermelho de atenção */
+    color: white;
+    padding: 8px 15px;
+}
+
+button[onclick^="removerLinha"]:hover {
+    background-color: #d62828;
+}
+
+/* Link Cancelar */
+a[th\\:href="@{/censo}"] {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ccc;
+    color: var(--cor-texto);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+a[th\\:href="@{/censo}"]:hover {
+    background-color: #bbb;
+}
+
+/* Efeito de Sombra de Ave Marinha (sutil) */
+/* Aplicado a elementos de destaque para dar a sensação de algo passando por cima */
+form, div[th\\:if], table {
+    box-shadow: 0 8px 15px var(--cor-sombra-ave),
+                0 0 0 1px rgba(0, 0, 0, 0.05); /* Borda sutil */
+}
+
+/* Sombra de texto sutil para títulos */
+h1, h3 {
+    text-shadow: 1px 1px 2px rgba(0, 119, 182, 0.2);
+}

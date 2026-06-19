@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Censos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/lista-style.css}">
+</head>
+<body>
+<h2>Lista de Censos </h2>
+
+
+<br><br>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Data</th>
+        <th>Hora</th>
+        <th>Observador</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="censo : ${censos}">
+
+
+<!--        <td th:text="${censo.id}">1</td>-->
+        <td style="font-weight: bold;">
+            <a th:href="@{/censo/leituras/{id}(id=${censo.id})}" th:text="${censo.id}">1</a>
+        </td>
+
+        <td th:text="${censo.data}">2023-10-27</td>
+        <td th:text="${censo.hora}">10:00:00</td>
+        <td th:text="${censo.observador != null ? censo.observador.login : 'N/A'}">observador@email.com</td>
+        <td th:text="${censo.latitude}">-31.4567</td>
+        <td th:text="${censo.longitude}">-41.1234</td>
+        <td>
+
+            <a th:href="@{/censo/editar/{id}(id=${censo.id})}" class="btn btn-sm btn-warning">Editar</a>
+            <a th:href="@{/censo/excluir/{id}(id=${censo.id})}" class="btn btn-sm btn-danger"
+               onclick="return confirm('Tem certeza que deseja excluir este censo?');">Excluir</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br/>
+<a th:href="@{/censo/novo}" class="btn">Novo Censo</a>
+</body>
+</html>
