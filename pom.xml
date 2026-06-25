@@ -84,5 +84,11 @@
 			</plugin>
 		</plugins>
 	</build>
+	---
+	<resources>
+    <resource>
+        <directory>src/main/resources</directory>
+    </resource>
+</resources>
 
 </project>
